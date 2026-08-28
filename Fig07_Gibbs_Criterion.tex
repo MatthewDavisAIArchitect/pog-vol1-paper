@@ -1,0 +1,29 @@
+% FILE: figures/Fig07_Gibbs_Criterion.tex
+% CONTEXT: The Gibbs Governance Criterion (Phase Diagram)
+\begin{tikzpicture}[font=\sffamily\small, scale=1.0, transform shape]
+    \begin{axis}[
+        width=10cm, height=8cm,
+        xlabel={\textbf{Context Entropy} ($T\Delta S$)},
+        ylabel={\textbf{Governance Enthalpy} ($\Delta H$)},
+        axis lines=left,
+        xmin=0, xmax=10,
+        ymin=0, ymax=10,
+        grid=major,
+        title={\textbf{The Gibbs Governance Criterion} ($\Delta G = \Delta H - T\Delta S$)}
+    ]
+    % 1. THE CRITICAL LINE
+    \addplot[thick, black, domain=0:10] {x} node[pos=0.9, sloped, above] {Critical Threshold ($\Delta G = 0$)};
+
+    % 2. THE STABLE ZONE (Green)
+    \fill[GovBlue!20, opacity=0.5] (axis cs:0,0) -- (axis cs:0,10) -- (axis cs:10,10) -- cycle;
+    \node[anchor=center, align=center, text=GovBlue!40!black] at (axis cs:3, 8) {\textbf{ENDERGONIC ZONE}\\Stable Alignment\\($\Delta G > 0$)};
+
+    % 3. THE DRIFT ZONE (Red)
+    \fill[GovRed!20, opacity=0.5] (axis cs:0,0) -- (axis cs:10,0) -- (axis cs:10,10) -- cycle;
+    \node[anchor=center, align=center, text=GovRed!40!black] at (axis cs:8, 3) {\textbf{EXERGONIC ZONE}\\Spontaneous Drift\\($\Delta G < 0$)};
+
+    % 4. TRAJECTORY ARROW
+    \draw[->, ultra thick, black, dashed] (axis cs:1, 9) -- (axis cs:9, 1);
+    \node[rotate=-45, fill=white, inner sep=1pt] at (axis cs:5, 5) {Context Expansion};
+    \end{axis}
+\end{tikzpicture}

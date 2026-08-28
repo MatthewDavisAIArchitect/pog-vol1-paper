@@ -1,0 +1,47 @@
+% FILE: figures/Fig01_Governance_Engine.tex
+% CONTEXT: Maxwell's Demon (The Classifier Swarm)
+\begin{tikzpicture}[
+    font=\sffamily\small,
+    >=stealth,
+    scale=1.0, transform shape,
+    % Styles
+    token/.style={circle, draw=black, thin, minimum size=0.6cm, font=\scriptsize},
+    high_entropy/.style={token, fill=GovRed!20},
+    low_entropy/.style={token, fill=GovBlue!20},
+    demon_box/.style={rectangle, draw=GovGold, ultra thick, fill=GovGold!10, minimum width=2cm, minimum height=3cm, rounded corners},
+    zone/.style={rectangle, draw=none, fill=gray!5, minimum width=3cm, minimum height=4cm}
+]
+
+    % 1. THE INPUT STREAM (Mixed Entropy)
+    \node[anchor=south] at (-4, 2) {\textbf{Input Stream}};
+    \node[high_entropy] at (-4, 1.5) {$\Gi$};
+    \node[low_entropy] at (-4.5, 0.8) {$\Ge$};
+    \node[high_entropy] at (-3.5, 0.5) {$\Gi$};
+    \node[low_entropy] at (-4.2, -0.5) {$\Ge$};
+    
+    % Flow Arrow
+    \draw[->, thick, gray] (-3, 0.5) -- (-1.2, 0.5);
+
+    % 2. THE DEMON (Governance Engine)
+    \node[demon_box] (demon) at (0, 0.5) {};
+    \node[text=GovGold!50!black, font=\bfseries, align=center] at (0, 0.5) {MAXWELL'S\\DEMON\\(Classifier)};
+
+    % 3. THE SORTING GATES
+    % Upper Gate (Drift/Rejected)
+    \draw[->, GovRed, ultra thick] (1.2, 1) -- (3, 2) node[midway, above, rotate=25, font=\scriptsize] {REJECT ($W_{Gov}$)};
+    
+    % Lower Gate (Aligned/Authorized)
+    \draw[->, GovBlue, ultra thick] (1.2, 0) -- (3, -1) node[midway, below, rotate=-25, font=\scriptsize] {AUTHORIZE};
+
+    % 4. THE ZONES
+    % Exergonic Zone (Blocked)
+    \node[high_entropy] at (4, 2) {$\Gi$};
+    \node[high_entropy] at (4.5, 2.5) {$\Gi$};
+    \node[text=GovRed, align=center, font=\scriptsize] at (4.2, 1.2) {\textbf{BLOCKED}\\(High Entropy)};
+
+    % Endergonic Zone (Authorized)
+    \node[low_entropy] at (4, -1) {$\Ge$};
+    \node[low_entropy] at (4.5, -1.5) {$\Ge$};
+    \node[text=GovBlue, align=center, font=\scriptsize] at (4.2, -0.2) {\textbf{AUTHORIZED}\\(Low Entropy)};
+
+\end{tikzpicture}

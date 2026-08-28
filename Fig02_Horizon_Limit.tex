@@ -1,0 +1,29 @@
+% FILE: figures/Fig02_Horizon_Limit.tex
+% CONTEXT: The Containment Field (Superset Topology)
+\begin{tikzpicture}[font=\sffamily\scriptsize, scale=1.0, transform shape]
+
+    % 1. THE AGENT'S LATENT OCEAN (The Superset) -> GovRed
+    % Represents the vast, unsafe knowledge of the model
+    \fill[GovRed!10] (0,0) circle (2.5);
+    \node[text=GovRed!60!black, font=\bfseries] at (0, 2.0) {LATENT SPACE ($K_{Agent}$)};
+    \node[text=GovRed!60!black] at (0, 1.7) {Forbidden Knowledge};
+
+    % 2. THE HORIZON LIMIT (The Boundary) -> GovGold
+    % The hard barrier of the context window/permissions
+    \draw[GovGold, ultra thick, dashed] (0,0) circle (1.2);
+    \node[text=GovGold!60!black, fill=white, inner sep=1pt, rotate=-45] at (-0.95, -0.95) {The Horizon Limit};
+
+    % 3. THE AUTHORIZED ZONE (The Subset) -> GovBlue
+    % The safe, user-visible area
+    \fill[GovBlue!15] (0,0) circle (1.2);
+    \node[text=GovBlue!60!black, font=\bfseries] at (0, 0.2) {AUTHORIZED};
+    \node[text=GovBlue!60!black] at (0, -0.2) {User Clearance ($C_{User}$)};
+
+    % 4. LEAKAGE PRESSURE (Arrows)
+    % Visualizes the thermodynamic pressure of the agent trying to leak info in
+    \foreach \angle in {0, 45, ..., 315} {
+        \draw[->, GovRed, thick] (\angle:2.2) -- (\angle:1.3);
+    }
+    \node[text=GovRed, fill=white, inner sep=1pt] at (0, -2.0) {Leakage Pressure ($P_{Leak}$)};
+
+\end{tikzpicture}

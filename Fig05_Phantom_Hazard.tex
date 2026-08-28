@@ -1,0 +1,13 @@
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+    % Gap
+    \draw[thick] (0,0) -- (2,0) node[midway, below] {Rule Set A};
+    \draw[thick] (4,0) -- (6,0) node[midway, below] {Rule Set B};
+    
+    % Gap Visual
+    \draw[pattern=north east lines, pattern color=gray] (2,-0.2) rectangle (4,0.2);
+    \node[below] at (3,-0.2) {Governance Vacuum ($\Ge=0$)};
+    
+    % The Phantom Bridge
+    \draw[thick, red, dashed] (2,0) to[out=45, in=135] (4,0);
+    \node[red, above] at (3,0.8) {Phantom Bridge ($G_{\Phi}$)};
+\end{tikzpicture}

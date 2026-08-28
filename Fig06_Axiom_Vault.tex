@@ -1,0 +1,29 @@
+% FILE: figures/Fig06_Axiom_Vault.tex
+\begin{tikzpicture}[
+    font=\sffamily\small,
+    >=stealth,
+    scale=0.9, transform shape,
+    % Styles
+    vault/.style={circle, draw=GovBlue, ultra thick, fill=GovBlue!10, minimum size=3.5cm, align=center},
+    drift_arrow/.style={->, GovRed, thick, decorate, decoration={snake, amplitude=1pt, segment length=5pt}},
+    auth_arrow/.style={->, GovGold, ultra thick},
+    lock/.style={rectangle, draw=GovGold, fill=white, thick, minimum width=1.5cm, minimum height=0.8cm, align=center}
+]
+
+    % 1. THE VAULT (Immutable Core)
+    \node[vault] (core) at (0,0) {\textbf{VAULT} \\ $\mathbf{G_E}$ \\ \scriptsize(Read-Only)};
+
+    % 2. DRIFT ATTACKS (Bouncing off)
+    \draw[drift_arrow] (-4, 1) -- (-2, 0.5);
+    \draw[drift_arrow] (-4, -1) -- (-2, -0.5);
+    \node[text=GovRed, align=center, font=\scriptsize] at (-4.5, 0) {\textbf{DRIFT} ($\Gi$) \\ \textit{Rejected}};
+
+    % 3. THE MUTATION CHANNEL (The Only Way In)
+    \node[lock] (mechanism) at (0, 3.5) {\textbf{Multi-Sig} \\ \textbf{Auth}};
+    \draw[auth_arrow] (0, 5) -- (mechanism) node[midway, right, text=black] {Amendment ($G_{\Delta}$)};
+    \draw[auth_arrow] (mechanism) -- (core.north);
+
+    % 4. ANNOTATIONS
+    \node[text=GovBlue!50!black, font=\scriptsize] at (2.5, 0) {Cryptographically \\ Locked};
+
+\end{tikzpicture}

@@ -1,0 +1,55 @@
+% FILE: figures/Fig03_Kinetic_Reynolds.tex
+% CONTEXT: The Kinetic Reynolds Number (Governance Vacuum)
+% STYLE: Clean / Pastel / High-Legibility
+
+\begin{tikzpicture}[
+    font=\sffamily\small,
+    >=stealth,
+    scale=1.0, transform shape,
+    flow_laminar/.style={->, GovBlue!80, thick, smooth},
+    flow_turbulent/.style={->, GovRed!80, thick, smooth, decorating, decoration={snake, amplitude=1.5pt, segment length=12pt}},
+    filter_mesh/.style={fill=GovGold!10, draw=GovGold, thick, pattern=grid, pattern color=GovGold!40},
+    zone_label/.style={font=\scriptsize\bfseries, align=center}
+]
+
+    % 1. THE CONTEXT PIPE
+    \draw[GovGray!50, thick] (-1, 2) -- (9, 2); % Top Wall
+    \draw[GovGray!50, thick] (-1, -2) -- (9, -2); % Bottom Wall
+
+    % --- FIX IS HERE (CONTEXT WINDOW) ---
+    % Positioned at y=2.4 per instruction
+    \node[anchor=south west, text=GovGray, font=\tiny] at (-1, 2.4) {CONTEXT WINDOW ($\Vctx$)};
+    % ------------------------------------
+
+    % 2. LAMINAR ZONE (Left)
+    \foreach \y in {1.5, 1.0, 0.5, 0, -0.5, -1.0, -1.5} {
+        \draw[flow_laminar] (-0.5, \y) -- (3.5, \y);
+    }
+    \node[zone_label, text=GovBlue] at (1.5, -2.5) {LAMINAR FLOW\\ \normalfont\scriptsize Aligned Generation\\ ($v_{gen} < v_{audit}$)};
+
+    % 3. VISCOSITY FILTER (Center)
+    \node[filter_mesh, minimum height=4cm, minimum width=0.8cm] (filter) at (4, 0) {};
+    \node[above=0.2cm of filter.north, text=GovGold, font=\bfseries] {$\eta_{Gov}$};
+    \node[below=0.2cm of filter.south, text=GovGold, font=\tiny, align=center] {GOVERNANCE\\VISCOSITY};
+
+    % 4. TURBULENT ZONE (Right)
+    \begin{scope}[shift={(4.5,0)}]
+        \draw[flow_turbulent] (0, 1.5) to[out=0, in=180] (2, 0.5) to[out=0, in=135] (3.5, 0);
+        \draw[flow_turbulent] (0, 1.0) to[out=0, in=180] (1.5, 1.8) to[out=0, in=160] (3.5, 1.2);
+        \draw[flow_turbulent] (0, 0.5) to[out=0, in=225] (1, -0.5) to[out=45, in=180] (3.5, -0.2);
+        \draw[flow_turbulent] (0, 0) -- (1.5, 0) to[out=0, in=90] (2.5, -1.5) to[out=270, in=180] (3.5, -1.8);
+        \draw[flow_turbulent] (0, -0.5) to[out=0, in=135] (1, -1.5) to[out=-45, in=180] (3.5, -1.2);
+        \draw[flow_turbulent] (0, -1.0) to[out=0, in=180] (1.2, -0.2) to[out=0, in=180] (3.5, 0.8);
+        \draw[flow_turbulent] (0, -1.5) to[out=0, in=270] (0.8, -1.0) to[out=90, in=180] (2, 1.5) to[out=0, in=180] (3.5, 1.8);
+    \end{scope}
+    \node[zone_label, text=GovRed] at (6.5, -2.5) {TURBULENT DRIFT\\ \normalfont\scriptsize Hallucination\\ ($\ReCtx > Re_{Crit}$)};
+
+    % 5. CRITICAL THRESHOLD
+    \draw[dashed, GovRed, thick] (4, 2) -- (4, 2.8) node[above] {\textbf{Critical Threshold}};
+    
+    % --- FIX IS HERE (ENTROPY FLOW) ---
+    % Positioned at y=2.2 per instruction
+    \node[text=black!70, font=\scriptsize, align=left] at (0.5, 2.2) {Entropy Flow ($\rho_{Info} \cdot v_{gen}$)};
+    % ----------------------------------
+
+\end{tikzpicture}

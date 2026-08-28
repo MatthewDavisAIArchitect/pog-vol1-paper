@@ -1,0 +1,48 @@
+% FILE: figures/Fig04_Jeans_Instability.tex
+% CONTEXT: The Jeans Instability (Quadratic Collapse)
+% STYLE: Clean / Pastel / High-Legibility
+
+\begin{tikzpicture}[
+    font=\sffamily\small,
+    >=stealth,
+    scale=1.0, transform shape,
+    core_star/.style={circle, draw=GovBlue, fill=GovBlue!15, ultra thick, minimum size=2.5cm, align=center, drop shadow},
+    context_node/.style={circle, fill=GovRed!80, inner sep=1.5pt},
+    attention_line/.style={GovRed!20, thin},
+    gravity_arrow/.style={->, GovRed!80, ultra thick, shorten >=3pt},
+    horizon_boundary/.style={dashed, GovGold, thick}
+]
+
+    % 1. EFFECTIVE RECEPTIVE FIELD (Boundary)
+    \draw[horizon_boundary] (0,0) circle (4cm);
+    \node[text=GovGold!80!black, font=\scriptsize\bfseries, fill=white, inner sep=2pt] at (0, 4.2) {EFFECTIVE RECEPTIVE FIELD ($R_{eff}$)};
+
+    % 2. THE CONTEXT CLOUD (Stochastic Noise)
+    \foreach \i in {1,...,16} {
+        \node[context_node] (n\i) at ({3.5*cos(\i*22.5 + rand*15)}, {3.5*sin(\i*22.5 + rand*15)}) {};
+    }
+
+    % 3. QUADRATIC ATTENTION LINES (The Web)
+    \foreach \i in {1,...,16} {
+        \pgfmathsetmacro{\nextnode}{int(mod(\i+3,16)+1)}
+        \pgfmathsetmacro{\nextnodeB}{int(mod(\i+7,16)+1)}
+        \draw[attention_line] (n\i) -- (n\nextnode);
+        \draw[attention_line] (n\i) -- (n\nextnodeB);
+    }
+
+    % 4. GRAVITATIONAL PULL (Entropy Arrows)
+    \foreach \angle in {45, 135, 225, 315} {
+        \draw[gravity_arrow] ({4.5*cos(\angle)}, {4.5*sin(\angle)}) -- ({2.8*cos(\angle)}, {2.8*sin(\angle)});
+    }
+
+    % 5. THE SYSTEM PROMPT (The Core)
+    \node[core_star] (core) at (0,0) {$\mathbf{G_E}$\\\scriptsize(Constitution)};
+
+    % 6. LABELS
+    \node[text=GovRed, align=center, font=\scriptsize] at (3.5, -3.5) {\textbf{QUADRATIC GRAVITY}\\Self-Attention Load\\($\rho \cdot \Vctx^2$)};
+    \node[text=GovBlue, align=center, font=\scriptsize] at (-3.5, -3.5) {\textbf{BINDING ENERGY}\\Governance Enthalpy\\($\Ge$)};
+    
+    % 7. COLLAPSE CONDITION BOX
+    \node[draw=GovRed, thick, fill=white, rounded corners=2pt, align=center, font=\bfseries] at (0, -5) {COLLAPSE CONDITION\\$\OmegaStab < 1$};
+
+\end{tikzpicture}
