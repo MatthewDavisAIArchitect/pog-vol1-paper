@@ -1,0 +1,4 @@
+# Deposit fidelity: never convert line endings. The baseline is bytes-from-deposit,
+# and a CRLF rewrite would silently diverge every file from the zip it came from.
+# (A peer vault session hit exactly this class of corruption on 2026-08-28.)
+* -text
