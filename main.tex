@@ -1,5 +1,5 @@
 % ==============================================================================
-% MASTER DRIVER FILE: [CF01] The Physics of Governance (v2.0)
+% MASTER DRIVER FILE: [CF01] The Physics of Governance (v2.1)
 % ==============================================================================
 \documentclass[11pt, a4paper]{article}
 
@@ -11,13 +11,13 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{caption}
 \usepackage{microtype}
-\usepackage{filecontents}
 \usepackage{xcolor}
 \usepackage{tcolorbox} 
 
@@ -40,9 +40,10 @@
 \author{
     \textbf{Matthew A. Davis} \\[0.3em]
     \small \textit{The Unified Field Theory of Autonomous Governance Project} \\[0.3em]
-    \footnotesize \texttt{matthewdavis.ai.architect@gmail.com} $\,\cdot\,$ \url{linkedin.com/in/mdavis01}
+    \footnotesize \texttt{m@ontoramp.com} $\,\cdot\,$ \url{linkedin.com/in/mdavis01} \\[0.3em]
+    \footnotesize ORCID: 0009-0000-4309-3874
 }
-\date{February 2026}
+\date{August 2026}
 
 \newcommand{\Ge}{G_E}
 \newcommand{\Gi}{G_I}
@@ -50,6 +51,10 @@
 \newcommand{\Vctx}{V_{Context}}
 \newcommand{\ReCtx}{Re_{Ctx}}
 \newcommand{\OmegaStab}{\Omega_{Stability}}
+
+% --- THEOREM ENVIRONMENTS (v2.1) ---
+% Unnumbered by design: adds no new citable number to the frozen label set.
+\newtheorem*{fundamentaltheorem}{Fundamental Theorem of AI Governance}
 
 \begin{document}
 
@@ -62,6 +67,10 @@ The deployment of autonomous agents in high-stakes enterprise environments is cu
 % --- KEYWORDS ---
 \vspace{1em}
 \noindent\textbf{Keywords:} AI Governance, Thermodynamics of Computation, Jeans Instability, Context Collapse, Transformer Architecture, Entropy, Gibbs Free Energy.
+
+% --- DATA / CODE AVAILABILITY ---
+\vspace{0.5em}
+\noindent\textbf{Data and code availability:} This paper contains no datasets or experimental code. The complete \LaTeX{} source, including all TikZ figure sources and the bibliography, is maintained at \url{https://github.com/MatthewDavisAIArchitect/pog-vol1-paper} (tag \texttt{v2.1}) and archived on Zenodo (concept DOI: 10.5281/zenodo.18645592).
 
 % --- TABLE OF CONTENTS ---
 \vspace{1em}
@@ -243,7 +252,6 @@ Where:
 \label{sec:governance_vacuum}
 
 % --- FIGURE BLOCK: VISUAL ASSET 1 (KINETIC TWIN) ---
---
 \begin{figure}[t!]
     \centering
     \resizebox{0.95\textwidth}{!}{\input{figures/Fig03_Kinetic_Reynolds.tex}}
@@ -278,7 +286,7 @@ Where:
     \item \textbf{$\eta_{Gov}$} is the \textbf{Governance Viscosity}, defined as the Constitutional Mass ($\Ge$ [Bits]) multiplied by the Audit Velocity ($v_{audit}$ [Tokens/s]).
 \end{itemize}
 
-This derivation reveals that **Governance Viscosity is not static.** To maintain laminar flow ($\ReCtx < Re_{Crit}$) as the model speeds up ($v_{gen} \uparrow$), the enterprise must proportionally increase either the strictness of the constitution ($\Ge$) or the throughput of the audit layer ($v_{audit}$).
+This derivation reveals that \textbf{Governance Viscosity is not static.} To maintain laminar flow ($\ReCtx < Re_{Crit}$) as the model speeds up ($v_{gen} \uparrow$), the enterprise must proportionally increase either the strictness of the constitution ($\Ge$) or the throughput of the audit layer ($v_{audit}$).
 
 \subsection{The Critical Threshold ($Re_{Crit}$)}
 
@@ -344,7 +352,7 @@ The collapse occurs when the ratio falls below unity. At this singularity, the "
     \OmegaStab < 1 \implies \lim_{t \to \infty} P(Output | \Ge) = 0
 \end{equation}
 
-This equation dictates that \textbf{Identity is a finite resource.} As we scale Context Windows to 1M+ tokens, the gravitational pull increases by orders of magnitude. If $\Ge$ remains constant (a static text prompt), $\OmegaStab$ inevitably drops below 1. The result is **Total Identity Dissolution**: the agent ceases to be an employee of the firm and becomes a mirror of the data it is processing.
+This equation dictates that \textbf{Identity is a finite resource.} As we scale Context Windows to 1M+ tokens, the gravitational pull increases by orders of magnitude. If $\Ge$ remains constant (a static text prompt), $\OmegaStab$ inevitably drops below 1. The result is \textbf{Total Identity Dissolution}: the agent ceases to be an employee of the firm and becomes a mirror of the data it is processing.
 
 % ==============================================================================
 % SECTION 6: THE PHANTOM HAZARD
@@ -426,7 +434,7 @@ Unless actively purged, these phantom structures accumulate as permanent technic
     \draw[auth_arrow] (mechanism) -- (core.north);
 
     % 4. ANNOTATIONS
-    \node[text=GovBlue!50!black, font=\scriptsize] at (2.5, 0) {Cryptographically \\ Locked};
+    \node[text=GovBlue!50!black, font=\scriptsize, align=center] at (2.5, 0) {Cryptographically \\ Locked};
     \end{tikzpicture}
     \caption[\textbf{The Axiom of Amendment.}]{\textbf{The Axiom of Amendment: Cryptographic Mutation of Identity.} This diagram illustrates the only authorized pathway for altering the Core Identity ($\Ge$). The \textbf{Vault} is immutable to the agent itself. To adapt, the system must trigger a \textbf{Mutation Protocol ($G_{\Delta}$)}, a separate channel requiring multi-signature validation.}
     \label{fig:axiom_amendment}
@@ -468,7 +476,7 @@ Where:
 
 This inequality acts as a \textbf{Cryptographic Governor}. It ensures that high-risk changes ($\Delta S_{Risk} \uparrow$) require a proportionally higher investment in audit energy ($T_{Audit} \uparrow$) to execute. If the work input is insufficient ($W_{Input} < W_{\Delta}$), the Amendment is rejected, and the system reverts to its previous stable state ($\Ge$).
 
-==============================================================================
+% ==============================================================================
 % SECTION 8: THE GIBBS GOVERNANCE CRITERION
 % ==============================================================================
 \section{Conclusion: The Gibbs Governance Criterion ($\Delta G_{Gov}$)}
@@ -500,6 +508,7 @@ Where:
         \item If $\Delta G_{Gov} > 0$: The system is \textbf{Endergonic} (Stable). It requires external energy (Work) to drift.
         \item If $\Delta G_{Gov} < 0$: The system is \textbf{Exergonic} (Unstable). Drift is spontaneous and irreversible.
     \end{itemize}
+    \textit{Reader's caution: this sign convention is inverted relative to the ordinary chemical reading---here the spontaneous process is drift itself, so $\Delta G_{Gov} < 0$ is the failure state and stability requires $\Delta G_{Gov} > 0$.}
     \item \textbf{$\Delta H_{Intent}$} is the \textbf{Enthalpy of the Constitution} ($\Ge$) [Bits]. This represents the binding energy of the core rules.
     \item \textbf{$T_{Sys}$} is the \textbf{System Temperature} ($S_{Model}$), a hyperparameter governing the stochasticity of the model's sampling.
     \item \textbf{$\Delta S_{Interact}$} is the \textbf{Interaction Entropy} of the Context. Consistent with the Jeans Instability (Eq. \ref{eq:critical_density}), this scales quadratically with context volume but is normalized by the receptive field to maintain dimensional consistency [Bits]:
@@ -508,15 +517,15 @@ Where:
 
 \subsection{The Final State: The Governed Machine}
 
-This equation leads to the \textbf{Fundamental Theorem of AI Governance}:
+This equation leads to the following theorem:
 
-\begin{quote}
-    \textit{"As Context ($V$) expands linearly, Governance Enthalpy ($H$) must expand quadratically to maintain a positive stability potential ($\Delta G > 0$)."}
-\end{quote}
+\begin{fundamentaltheorem}
+    As Context ($V$) expands linearly, Governance Enthalpy ($H$) must expand quadratically to maintain a positive stability potential ($\Delta G > 0$).
+\end{fundamentaltheorem}
 
 The enterprise that ignores this law will find itself managing a fleet of "Exergonic Agents"---systems that drift not because they are broken, but because it is their thermodynamically favored state. The enterprise that masters it will build the "Governed Machine": a system where the cost of alignment is paid upfront in the currency of structural physics.
 
-In \textbf{Volume II: The Economics of Autonomous Agency}, we will explore the financial implications of this physics, proving that in a high-entropy market, the only solvent strategy is the rigorous capitalization of Truth.
+In \textbf{The Economics of Autonomous Agency: Volume II---Entropy, Debt, and the Cost of Truth}, we explore the financial implications of this physics, proving that in a high-entropy market, the only solvent strategy is the rigorous capitalization of Truth.
 % ==============================================================================
 % BIBLIOGRAPHY
 % ==============================================================================
