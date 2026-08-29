@@ -2,14 +2,14 @@
 title: "Volume I: The Physics of Governance — Publication Record v2.1"
 domain: manuscripts
 ip_classification: public
-status: pending-publish
+status: active
 created: 2026-08-28
 updated: 2026-08-28
 authors: "Davis, Matthew A."
 orcid: 0009-0000-4309-3874
 license: CC BY 4.0
 concept_doi: 10.5281/zenodo.18645592
-version_doi: "[pending — assigned at Zenodo publish]"
+version_doi: 10.5281/zenodo.22151454
 ---
 
 # Volume I: The Physics of Governance — Publication Record (v2.1)
@@ -26,12 +26,12 @@ are filled in the session that publishes the Zenodo new version.
 | Field | Value |
 |-------|-------|
 | Version | 2.1 |
-| Published | *pending* (built 2026-08-28) |
-| License | CC BY 4.0 (inherited from the v2.0 record, verified via Zenodo API) |
-| Concept DOI (always latest) | `10.5281/zenodo.18645592` |
-| Version DOI (v2.1) | *pending* |
+| Published | 2026-08-28 |
+| License | CC BY 4.0 |
+| Concept DOI (always latest) | `10.5281/zenodo.18645592` — verified resolving to the v2.1 record |
+| Version DOI (v2.1) | `10.5281/zenodo.22151454` |
 | Version DOI (v2.0) | `10.5281/zenodo.18645593` — the DOI the shipped plates cite; resolves to v2.0 forever |
-| Repository | `github.com/MatthewDavisAIArchitect/pog-vol1-paper` tag `v2.1` — *pending push* |
+| Repository | `github.com/MatthewDavisAIArchitect/pog-vol1-paper` tag `v2.1` — live, tag tree verified |
 | Candidate PDF sha256 | `a22df4e485afd652d3185c9f8c22e55f81528bc8fab8d76fa3d9a0a44e006f16` |
 | Candidate `Source_Code_v2.1.zip` sha256 | `b08d27aaa7a7145911a23581ff920ad8916d711374bcb16adb204c25e5abff56` (md5 `98473bc51011355a6425f9f85bc4ce11`) |
 | Release commit | `1e49926` on `feat/pog-vol1-version-bump`, tag `v2.1` |
@@ -105,28 +105,31 @@ re-verified.
 
 | Version | Date | Note |
 |---------|------|------|
-| 2.1 | *pending* (built 2026-08-28) | Reproducibility restoration; IAC v5.0 format parity; published-defect errata; approved polish. No claim changes; equations unrenumbered. |
+| 2.1 | 2026-08-28 | Record `10.5281/zenodo.22151454`. Reproducibility restoration; IAC v5.0 format parity; published-defect errata; approved polish. No claim changes; equations unrenumbered. Zenodo-side: description replaced (the inherited one was the stale v1 abstract), related works repaired (stray `]`, truncated DOI) and extended (COI, Principia, Vol II, source repo). |
 | 2.0 | 2026-02-15 | Record `10.5281/zenodo.18645593`. Baseline for this repo (`v2.0-baseline`). |
-| 1.0.0 "Preprint" | 2026-02-10 | **Separate duplicate concept** `10.5281/zenodo.18602937` — do not cite; its description gets a pointer to the current concept at v2.1 publish time. |
+| 1.1 | 2026-02-11 | **Second separate duplicate concept** `10.5281/zenodo.18604940` (record `18604941`) — do not cite. Discovered 2026-08-28 when a "New version" click nearly chained v2.1 under it; caught by a parent-DOI check pre-publish. |
+| 1.0.0 "Preprint" | 2026-02-10 | **Separate duplicate concept** `10.5281/zenodo.18602937` (concept `18602936`) — do not cite. |
 | 1.2 (visual lineage) | 2026-02-11 | Local zip only (`Volume_I_Law/Published/Davis_2026_Physics_of_Governance_Vol1_Vis_v1.2.zip`); diff ancestor. |
 
-## Post-publish checklist (fill/execute in the publishing session)
+## Post-publish checklist — status at close of the publishing session (2026-08-28)
 
-1. Zenodo: **New version** under concept `18645592` (never a new record);
-   upload `Davis_2026_Volume_I_The_Physics_of_Governance_v2.1.pdf` +
-   `Source_Code_v2.1.zip`; record the v2.1 version DOI here and in the
-   frontmatter; set `status: active`.
-2. Edit old record `18602937`'s description to point at the current concept.
-3. Push this repo to `github.com/MatthewDavisAIArchitect/pog-vol1-paper` and
-   confirm the availability URL + tag resolve (page 1 cites them).
-4. Refresh `deposit/` and `reference/` with the published v2.1 files; verify
-   hashes match this record.
-5. Fix `C:/VAULT/Manuscripts/CF00_Unified_Field_Theory_DOI_Manifest_v1.md`
-   (Vol I row: wrong concept `18602937`, phantom "v2.2"; also COI row lists a
-   version DOI as concept — concept is `18437153`).
-6. Move misfiled `Volume_I_Law/Published/Source_Code_v4.zip` (Principia v4) to
-   the Principia home; file the v2.1 zip + PDF in `Volume_I_Law/Published/`.
-7. Brand repo `content/_source/`: cache the v2.1 PDF beside v2.0, write a new
-   VERIFIED-STRUCTURE note (do not overwrite the v2.0 note — plates cite v2.0).
-8. Update memory `project_physics_of_governance_series.md` with the v2.1
-   version DOI beside the v2.0 pointer.
+1. ✅ Zenodo new version published under concept `18645592`: record `22151454`,
+   both files verified byte-exact (md5 `04ed06aa…` PDF / `98473bc5…` zip);
+   concept DOI verified resolving to v2.1.
+2. ☐ **REMAINING (owner, Zenodo UI):** edit the descriptions of BOTH stale
+   records — `18602937` (v1.0.0) and `18604941` (v1.1) — to point readers at
+   concept `10.5281/zenodo.18645592`; delete the stray unpublished draft
+   `22151306` (it is chained to the v1.1 duplicate concept).
+3. ✅ Repo public at `github.com/MatthewDavisAIArchitect/pog-vol1-paper`;
+   availability URL + tag `v2.1` tree verified resolving.
+4. ✅ `deposit/` + `reference/` refreshed with the files downloaded FROM the
+   published record; sha256 round trip matches this record's hashes.
+5. ✅ Vault DOI manifest corrected (Vol I chain, COI concept/version split,
+   Vol II Economics row, both stale concepts flagged).
+6. ✅ `Source_Code_v4.zip` moved to `Principia/Published/` beside its matching
+   v4 PDF; v2.1 zip + PDF filed in `Volume_I_Law/Published/`.
+7. ✅ Brand repo: v2.1 PDF cached beside v2.0 +
+   `VERIFIED-STRUCTURE_Physics-of-Governance-VolI_v2.1.md` written (v2.0 note
+   untouched); committed `6ac2546` on `main`.
+8. ✅ Series memory updated: v2.1 DOI recorded beside the v2.0 pointer; the
+   three-concepts warning and the unnumbered-theorem nuance captured.
